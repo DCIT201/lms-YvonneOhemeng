@@ -13,15 +13,6 @@ public class Patron {
         this.borrowedBooks = new ArrayList<>();
     }
 
-    // Getters
-    public String getName() {
-        return name;
-    }
-
-    public List<Book> getBorrowedBooks() {
-        return borrowedBooks;
-    }
-
     // Method to borrow a book
     public void borrowBook(Book book) {
         borrowedBooks.add(book);
@@ -32,11 +23,12 @@ public class Patron {
         borrowedBooks.remove(book);
     }
 
-    @Override
-    public String toString() {
-        return "Patron{" +
-                "name='" + name + '\'' +
-                ", borrowedBooks=" + borrowedBooks +
-                '}';
+    // Getters
+    public String getName() {
+        return name;
+    }
+
+    public List<Book> getBorrowedBooks() {
+        return borrowedBooks;
     }
 }

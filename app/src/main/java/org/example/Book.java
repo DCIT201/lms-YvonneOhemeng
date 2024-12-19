@@ -4,14 +4,12 @@ public class Book {
     private String title;
     private String author;
     private int yearPublished;
-    private String bookISBN;
 
     // Constructor
-    public Book(String title, String author, int yearPublished, String bookISBN) {
+    public Book(String title, String author, int yearPublished) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
-        this.bookISBN = bookISBN;
     }
 
     // Getters
@@ -25,19 +23,5 @@ public class Book {
 
     public int getYearPublished() {
         return yearPublished;
-    }
-
-    public String getBookISBN() {
-        return bookISBN;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", yearPublished=" + yearPublished +
-                ", bookISBN='" + bookISBN + '\'' +
-                '}';
     }
 }

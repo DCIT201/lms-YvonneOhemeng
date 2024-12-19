@@ -13,7 +13,7 @@ public class Library {
         this.patrons = new ArrayList<>();
     }
 
-    // Method to add a book to the library
+    // Method to add a book
     public void addBook(Book book) {
         books.add(book);
     }
@@ -24,30 +24,27 @@ public class Library {
     }
 
     // Method to lend a book to a patron
-    public void lendBook(Book book, Patron patron) {
-        if (books.contains(book) && !patron.getBorrowedBooks().contains(book)) {
+    public boolean lendBook(Book book, Patron patron) {
+        if (books.contains(book)) {
             patron.borrowBook(book);
-            System.out.println(patron.getName() + " borrowed " + book.getTitle());
-        } else {
-            System.out.println("Book is not available or already borrowed by " + patron.getName());
+            books.remove(book);
+            return true;
         }
+        return false; // Book not available
     }
 
     // Method to return a book from a patron
     public void returnBook(Book book, Patron patron) {
-        if (patron.getBorrowedBooks().contains(book)) {
-            patron.returnBook(book);
-            System.out.println(patron.getName() + " returned " + book.getTitle());
-        } else {
-            System.out.println(patron.getName() + " did not borrow " + book.getTitle());
-        }
+        patron.returnBook(book);
+        books.add(book);
     }
 
-    @Override
-    public String toString() {
-        return "Library{" +
-                "books=" + books +
-                ", patrons=" + patrons +
-                '}';
+    // Getters
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public List<Patron> getPatrons() {
+        return patrons;
     }
 }
